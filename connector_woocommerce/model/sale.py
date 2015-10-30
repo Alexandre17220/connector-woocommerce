@@ -202,7 +202,7 @@ class SaleOrderAdapter(GenericAdapter):
             filters.setdefault('updated_at', {})
             filters['updated_at']['to'] = to_date.strftime(dt_fmt)
 
-        return self._call('orders/list',
+        return self._call('orders/list?filter[limit]=9999',
                           [filters] if filters else [{}])
 
     def update_sale_state(self, id, data):

@@ -317,7 +317,7 @@ class ProductCombinationAdapter(GenericAdapter):
             filters.setdefault('updated_at', {})
             filters['updated_at']['to'] = to_date.strftime(dt_fmt)
 
-        return self._call('products/list',
+        return self._call('products/list?filter[limit]=9999',
                           [filters] if filters else [{}])
 
     def get_images(self, id, storeview_id=None):

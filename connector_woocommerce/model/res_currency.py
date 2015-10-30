@@ -80,7 +80,7 @@ class ResCurrencyAdapter(GenericAdapter):
         if to_date is not None:
             filters.setdefault('updated_at', {})
             filters['updated_at']['to'] = to_date.strftime(dt_fmt)
-        return self._call('currencies/list',
+        return self._call('currencies/list?filter[limit]=9999',
                           [filters] if filters else [{}])
 
 
